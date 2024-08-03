@@ -10,3 +10,4 @@ Locked for submission:
 insert solution:
 * (1768) Merge Strings Alternately
 * (389) Find the Difference.py
+* (28) Find the Index of the First Occurrence in a String
