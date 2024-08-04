@@ -31,6 +31,14 @@ digits[i] is a digit in the range ['2', '9'].
 #+---------------------------|
 # Solutions
 #+---------------------------|
+# Draft
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+
+
+solution = solution ()
+print (solution.letterCombinations ("23"))
+
 
 #+---------------------------|
 # Lessons
