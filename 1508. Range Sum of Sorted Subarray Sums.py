@@ -36,5 +36,91 @@ n == nums.length
 #+---------------------------|
 
 # Approach 1: Brute Force
+class Solution:
+    def rangeSum(self, nums: List[int], n: int, left: int, right: int) -> int:
+        store_subarray = []
+        for i in range(len(nums)):
+            sum = 0
+            # Iterate through all indices ahead of the current index.
+            for j in range(i, len(nums)):
+                sum += nums[j]
+                store_subarray.append(sum)
 
+        # Sort all subarray sum values in increasing order.
+        store_subarray.sort()
 
+        # Find the sum of all values between left and right.
+        range_sum = 0
+        mod = 10**9 + 7
+        for i in range(left - 1, right):
+            range_sum = (range_sum + store_subarray[i]) % mod
+        return range_sum
+
+# Approach 2: Priority Queue
+
+class Solution:
+    import heapq
+
+    def rangeSum(self, nums, n, left, right):
+        pq = []
+        for i in range(n):
+            heapq.heappush(pq, (nums[i], i))
+
+        ans = 0
+        mod = 1e9 + 7
+        for i in range(1, right + 1):
+            p = heapq.heappop(pq)
+            # If the current index is greater than or equal to left, add the
+            # value to the answer.
+            if i >= left:
+                ans = (ans + p[0]) % mod
+            # If index is less than the last index, increment it and add its
+            # value to the first pair value.
+            if p[1] < n - 1:
+                p = (p[0] + nums[p[1] + 1], p[1] + 1)
+                heapq.heappush(pq, p)
+        return int(ans)
+
+ # Approach 3: Binary Search and Sliding Window
+class Solution:
+    def rangeSum(self, nums, n, left, right):
+        mod = 10**9 + 7
+
+        def count_and_sum(nums, n, target):
+            count = 0
+            current_sum = 0
+            total_sum = 0
+            window_sum = 0
+            i = 0
+            for j in range(n):
+                current_sum += nums[j]
+                window_sum += nums[j] * (j - i + 1)
+                while current_sum > target:
+                    window_sum -= current_sum
+                    current_sum -= nums[i]
+                    i += 1
+                count += j - i + 1
+                total_sum += window_sum
+            return count, total_sum
+
+        def sum_of_first_k(nums, n, k):
+            min_sum = min(nums)
+            max_sum = sum(nums)
+            left = min_sum
+            right = max_sum
+
+            while left <= right:
+                mid = left + (right - left) // 2
+                if count_and_sum(nums, n, mid)[0] >= k:
+                    right = mid - 1
+                else:
+                    left = mid + 1
+            count, total_sum = count_and_sum(nums, n, left)
+            # There can be more subarrays with the same sum of left.
+            return total_sum - left * (count - k)
+
+        result = (
+            sum_of_first_k(nums, n, right) - sum_of_first_k(nums, n, left - 1)
+        ) % mod
+        # Ensure non-negative result
+        return (result + mod) % mod
