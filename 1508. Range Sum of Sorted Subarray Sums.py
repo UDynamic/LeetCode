@@ -35,3 +35,6 @@ n == nums.length
 # Solutions
 #+---------------------------|
 
+# Approach 1: Brute Force
+
+
