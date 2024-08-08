@@ -1,3 +1,19 @@
+        DO WHAT YOU WANT TO PUBLIC LICENSE 
+                Version 1, August 2024 
+
+Copyright (C) 2024 Mahriar Gharaghani <mahriargharaghani@gmail.com>
+
+Everyone is permitted to copy and distribute verbatim or modified 
+copies of this license document, and changing it is allowed as long 
+as the name is changed. 
+
+DO WHAT YOU WANT TO PUBLIC LICENSE 
+TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION 
+
+0. You just DO WHAT YOU WANT TO.
+
+
+
 This is free and unencumbered software released into the public domain.
 
 Anyone is free to copy, modify, publish, use, compile, sell, or
