@@ -75,14 +75,18 @@ class Solution:
 
         # StringBuilder to accumulate the result
         result = ""
+        # each chunk of three digits from far right
         group_index = 0
 
-        # Process the number in chunks of 1000
+        # Process the number in chunks of 1000 (e.g. chunks of three digits)
         while num > 0:
-            # Process the last three digits
-            if num % 1000 != 0:
+            # Process the last three digits 
+            if num % 1000 != 0: # else is either 0 meaning all the chunks have been processed or a number representing next chunks
                 group_result = ""
                 part = num % 1000
+                    # 655 % 1000 = 655
+                    # 1655 % 1000 = 655
+                    # 1654655 % 1000 = 655
 
                 # Handle hundreds
                 if part >= 100:
@@ -107,20 +111,42 @@ class Solution:
             group_index += 1
 
         return result.strip()
-    
+ 
 # Approach 3: Pair-Based Approach
 class Solution:
     # Dictionary to store words for numbers
     number_to_words_map = {
-        1000000000: "Billion", 1000000: "Million", 1000: "Thousand",
-        100: "Hundred", 90: "Ninety", 80: "Eighty", 70: "Seventy",
-        60: "Sixty", 50: "Fifty", 40: "Forty", 30: "Thirty",
-        20: "Twenty", 19: "Nineteen", 18: "Eighteen", 17: "Seventeen",
-        16: "Sixteen", 15: "Fifteen", 14: "Fourteen", 13: "Thirteen",
-        12: "Twelve", 11: "Eleven", 10: "Ten", 9: "Nine", 8: "Eight",
-        7: "Seven", 6: "Six", 5: "Five", 4: "Four", 3: "Three",
-        2: "Two", 1: "One"
-    }
+        1000000000: "Billion",
+        1000000: "Million",
+        1000: "Thousand",
+        100: "Hundred",
+        90: "Ninety",
+        80: "Eighty",
+        70: "Seventy",
+        60: "Sixty",
+        50: "Fifty",
+        40: "Forty",
+        30: "Thirty",
+        20: "Twenty",
+        19: "Nineteen",
+        18: "Eighteen",
+        17: "Seventeen",
+        16: "Sixteen",
+        15: "Fifteen",
+        14: "Fourteen",
+        13: "Thirteen",
+        12: "Twelve",
+        11: "Eleven",
+        10: "Ten",
+        9: "Nine",
+        8: "Eight",
+        7: "Seven",
+        6: "Six",
+        5: "Five",
+        4: "Four",
+        3: "Three",
+        2: "Two",
+        1: "One"}
 
     def numberToWords(self, num: int) -> str:
         if num == 0:
