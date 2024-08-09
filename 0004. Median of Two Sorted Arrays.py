@@ -62,6 +62,9 @@ class Solution:
             ans = float(m1) + float(m2)
             return ans / 2.0
 
+# Approach 3: Binary Search
+
+
 #+---------------------------|
 # Lessons
 #+---------------------------|
