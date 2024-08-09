@@ -41,6 +41,9 @@ col == grid[i].length
 #+---------------------------|
 
 # Approach 1: Manual Scan
+
+
+# Approach 2: Check Unique Properties of Magic Square
 class Solution:
     def numMagicSquaresInside(self, grid: List[List[int]]) -> int:
         ans = 0
