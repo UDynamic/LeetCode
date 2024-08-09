@@ -27,6 +27,10 @@ class Solution:
             middle2 = merged[total // 2]
             return (float(middle1) + float(middle2)) / 2.0
 
+
+# Approach 2: Two-Pointer Method
+
+
 #+---------------------------|
 # Lessons
 #+---------------------------|
